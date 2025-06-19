@@ -6,6 +6,18 @@
 
 An AI-powered GitHub Pull Request reviewer that uses local LLMs via Ollama for intelligent code analysis, test generation, and code review automation.
 
+---
+
+## 🚀 Now with .NET Project & Solution Support!
+
+- **Full .NET Support**: Analyze, review, and generate tests for C#, F#, and VB.NET projects and solutions (`.csproj`, `.fsproj`, `.vbproj`, `.sln`).
+- **Smart Test Generation**: Automatically detects .NET test projects and places generated test files in the correct location.
+- **No More Language Specifiers**: Cleans up AI-generated test files to remove unwanted language specifiers (e.g., `csharp`, `fsharp`).
+- **Works with xUnit, NUnit, MSTest**: Supports major .NET test frameworks out of the box.
+- **Cross-language**: Python, JavaScript, TypeScript, and now .NET (C#, F#, VB.NET) all supported!
+
+---
+
 ## Architecture
 
 ### High-Level System Design
@@ -111,12 +123,25 @@ main branch
 📊 **Comprehensive Reports**: Detailed coverage analysis and actionable improvement recommendations
 🔄 **Automated Workflow**: Seamless integration with GitHub webhooks for PR automation
 
+## .NET Project & Solution Support
+
+The AI agent now fully supports .NET projects and solutions, including C#, F#, and VB.NET. It can:
+- Detect .NET source files (`.cs`, `.fs`, `.vb`), project files (`.csproj`, `.fsproj`, `.vbproj`), and solution files (`.sln`).
+- Generate and place test files in the correct test project directory (e.g., `tests/CalculatorTests.cs`).
+- Automatically create test directories if they do not exist.
+- Clean up generated test files by removing unwanted language specifiers (e.g., "csharp", "fsharp").
+- Work with multi-project .NET repositories and ensure tests are placed in the appropriate test project.
+
+**Example:**
+- For a solution with `src/Calculator.cs` and `tests/CalculatorTests.cs`, generated tests will be placed in the `tests` directory, and the test project will be updated automatically.
+
 ## Prerequisites
 
 ### System Requirements
 
 - **Operating System**: Linux, macOS, or Windows with WSL2
 - **Python**: 3.9 or higher
+- **.NET SDK**: 6.0 or higher (required for .NET/C#/F#/VB.NET project support)
 - **Memory**: Minimum 8GB RAM (16GB recommended for larger models)
 - **Storage**: At least 10GB free space for models
 - **Network**: Internet connection for initial setup and GitHub integration
@@ -600,16 +625,3 @@ export OLLAMA_GPU_LAYERS=35
 #### Create a new PR in your repository
 #### Check the webhook delivery in GitHub settings
 #### Verify the agent processes the PR and adds comments
-
----
-# Enhanced Features (Optional Extensions):
-
-## Integration with CI/CD
-## Monitoring & Logging
-#### Add structured logging:
-import logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-## Database Integration
-
